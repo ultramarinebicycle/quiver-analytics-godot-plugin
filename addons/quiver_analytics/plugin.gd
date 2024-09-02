@@ -4,6 +4,7 @@ extends EditorPlugin
 const AUTOLOAD_NAME := "Analytics"
 const CUSTOM_PROPERTIES := [
 	{"name": "quiver/general/auth_token", "default": "", "basic": true, "general": true},
+	{"name": "quiver/analytics/enabled", "default": false, "basic": true, "general": false},
 	{"name": "quiver/analytics/player_consent_required", "default": false, "basic": true, "general": false},
 	{"name": "quiver/analytics/config_file_path", "default": "user://analytics.cfg", "basic": false, "general": false},
 	{"name": "quiver/analytics/auto_add_event_on_launch", "default": true, "basic": false, "general": false},

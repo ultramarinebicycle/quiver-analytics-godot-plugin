@@ -53,6 +53,7 @@ signal exit_handled
 
 
 var auth_token = ProjectSettings.get_setting("quiver/general/auth_token", "")
+var analytics_enabled = ProjectSettings.get_setting("quiver/analytics/enabled", false)
 var config_file_path := ProjectSettings.get_setting("quiver/analytics/config_file_path", "user://analytics.cfg")
 var consent_required = ProjectSettings.get_setting("quiver/analytics/player_consent_required", false)
 var consent_requested = false
@@ -159,6 +160,9 @@ func deny_data_collection() -> void:
 ## Use this track an event. The name must be 50 characters or less.
 ## You can pass in an arbitrary dictionary of properties.
 func add_event(name: String, properties: Dictionary = {}) -> void:
+	if not analytics_enabled:
+		return
+	
 	if not data_collection_enabled:
 		_process_requests()
 		return
